@@ -46,7 +46,9 @@ header img {
   color: #FFFFFF;
   outline: none;
 }
-
+.search button:hover {
+  cursor: pointer;
+}
 main {
   min-height: calc(100% - 60px);
   background-color: #434343;

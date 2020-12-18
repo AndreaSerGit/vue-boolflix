@@ -20,7 +20,6 @@ var app = new Vue(
           )
           .then( (result) => {
             this.libreriaFilm = result.data.results;
-            console.log(result)
             console.log(this.libreriaFilm)
           }
 

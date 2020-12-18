@@ -20,7 +20,8 @@
 
       <main>
         <div  v-for="film in libreriaFilm" class="movie">
-          <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path" alt="">
+          <img v-if="film.poster_path == null" src="https://thehaatbazar.com/ItemImages/No-image-found_220x330.jpg" alt="">
+          <img v-else :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path" alt="">
           <div class="description">
             <h4>Titolo: {{film.title}}</h4>
             <h4>Titolo originale: {{film.original_title}}</h4>
