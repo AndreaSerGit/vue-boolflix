@@ -14,18 +14,18 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="">
         <div class="search">
           <input type="text" name="" value="" v-model="ricerca" placeholder="Ricerca titoli">
-          <button @click="cercaFilm" type="button" name="button" ><i class="fas fa-search"></i></button>
+          <button type="button" name="button" @click="cercaFilm" ><i class="fas fa-search"></i></button>
         </div>
       </header>
 
       <main>
-        <div class="movie" v-for="film in libreriaFilm">
-          <img :src="film.poster_path" alt="">
+        <div  v-for="film in libreriaFilm" class="movie">
+          <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path" alt="">
           <div class="description">
             <h4>Titolo: {{film.title}}</h4>
             <h4>Titolo originale: {{film.original_title}}</h4>
             <p>Voto: <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i></p>
-            <p>Overview: {{overview}}</p>
+            <p>Overview: {{film.overview}}</p>
           </div>
         </div>
 

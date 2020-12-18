@@ -9,11 +9,12 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #434343;
 }
 
 header {
   background-color: #141414;
-  height: 60px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,7 +48,7 @@ header img {
 }
 
 main {
-  height: calc(100% - 60px);
+  min-height: calc(100% - 60px);
   background-color: #434343;
   display: flex;
   justify-content: center;
@@ -77,8 +78,13 @@ main {
   padding: 45px 8px 8px 8px;
   line-height: 25px;
   opacity: 0;
+  overflow-y: auto;
 }
 .movie:hover  .description {
   cursor: pointer;
   opacity: 1;
+}
+
+.description:last-child p {
+  font-size: 10px;
 }
