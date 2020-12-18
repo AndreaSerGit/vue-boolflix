@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+    <title>Boolflix</title>
+  </head>
+  <body>
+    <div id="flix">
+      <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="">
+        <div class="search">
+          <input type="text" name="" value="" v-model="ricerca" placeholder="Ricerca titoli">
+          <button @click="cercaFilm" type="button" name="button" ><i class="fas fa-search"></i></button>
+        </div>
+      </header>
+
+      <main>
+        <div class="movie" v-for="film in libreriaFilm">
+          <img :src="film.poster_path" alt="">
+          <div class="description">
+            <h4>Titolo: {{film.title}}</h4>
+            <h4>Titolo originale: {{film.original_title}}</h4>
+            <p>Voto: <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i></p>
+            <p>Overview: {{overview}}</p>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
+
+
+
+  <script src="js/boolflix.js" charset="utf-8"></script>
+  </body>
+</html>
