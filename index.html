@@ -11,20 +11,33 @@
   <body>
     <div id="flix">
       <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="">
+        <div class="nav">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Serie TV</a></li>
+            <li><a href="#">Film</a></li>
+            <li><a href="#">Nuovi e popolari</a></li>
+            <li><a href="#">La mia lista</a></li>
+          </ul>
+
+        </div>
+
         <div class="search">
           <input type="text" name="" value="" v-model="ricerca" placeholder="Ricerca titoli">
           <button type="button" name="button" @click="cercaFilm" ><i class="fas fa-search"></i></button>
+          <img src="https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg" alt="">
         </div>
       </header>
 
       <main>
-        <div  v-for="(film, index) in libreriaFilm" class="movie">
+        <div  v-for="(film, index) in libreriaCompleta" class="movie">
           <img v-if="film.poster_path == null" src="https://thehaatbazar.com/ItemImages/No-image-found_220x330.jpg" alt="">
           <img v-else :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path" alt="">
           <div class="description">
-            <h4>Titolo: {{film.title}}</h4>
-            <h4 v-if="film.original_title != film.title">Titolo originale: {{film.original_title}}</h4>
+            <h4 v-if="film.title">Titolo: {{film.title}}</h4>
+            <h4 v-else-if="film.name">Titolo: {{film.name}}</h4>
+            <h4 v-else-if="film.original_title != film.title">Titolo originale: {{film.original_title}}</h4>
             <p>Lingua: <img v-if="film.original_language == 'en'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="">
             <img v-else-if="film.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" alt=""> <span v-else >{{film.original_language}}</span></p>
 
