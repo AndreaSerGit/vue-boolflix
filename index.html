@@ -25,6 +25,9 @@
           <div class="description">
             <h4>Titolo: {{film.title}}</h4>
             <h4>Titolo originale: {{film.original_title}}</h4>
+            <p>Lingua: <img v-if="film.original_language == 'en'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="">
+            <img v-else-if="film.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" alt=""> <span v-else >{{film.original_language}}</span></p>
+
             <p>Voto: <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i></p>
             <p>Overview: {{film.overview}}</p>
           </div>

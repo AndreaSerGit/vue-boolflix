@@ -69,6 +69,7 @@ main {
 
 .movie img {
   width: 100%;
+  object-fit: contain;
 }
 .description {
   position: absolute;
@@ -81,6 +82,11 @@ main {
   line-height: 25px;
   opacity: 0;
   overflow-y: auto;
+}
+.description img {
+  width: 50%;
+  vertical-align: middle;
+  margin-left: 20px;
 }
 .movie:hover  .description {
   cursor: pointer;
