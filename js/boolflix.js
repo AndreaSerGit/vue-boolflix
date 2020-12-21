@@ -3,7 +3,7 @@ var app = new Vue(
     el: '#flix',
     data: {
       libreriaFilm: [],
-      ricerca: ''
+      ricerca: '' ,
     },
     created: function() {
 
@@ -22,6 +22,11 @@ var app = new Vue(
         .then( (result) => {
           this.libreriaFilm = result.data.results;
           console.log(this.libreriaFilm)
+          for(var i = 0; i < this.libreriaFilm.length; i++) {
+            this.libreriaFilm[i].vote_average = Math.ceil(this.libreriaFilm[i].vote_average/2)
+            console.log(this.libreriaFilm[i].vote_average)
+          }
+
         }
 
       )

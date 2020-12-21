@@ -19,16 +19,22 @@
       </header>
 
       <main>
-        <div  v-for="film in libreriaFilm" class="movie">
+        <div  v-for="(film, index) in libreriaFilm" class="movie">
           <img v-if="film.poster_path == null" src="https://thehaatbazar.com/ItemImages/No-image-found_220x330.jpg" alt="">
           <img v-else :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path" alt="">
           <div class="description">
             <h4>Titolo: {{film.title}}</h4>
-            <h4>Titolo originale: {{film.original_title}}</h4>
+            <h4 v-if="film.original_title != film.title">Titolo originale: {{film.original_title}}</h4>
             <p>Lingua: <img v-if="film.original_language == 'en'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="">
             <img v-else-if="film.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" alt=""> <span v-else >{{film.original_language}}</span></p>
 
-            <p>Voto: <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i></p>
+            <p>Voto:
+              <i :class="film.vote_average == 0 ? 'far'  : 'fas'  " class="fa-star"></i>
+              <i :class="film.vote_average < 1 ? 'far'  : 'fas'" class="fa-star"></i>
+              <i :class="film.vote_average < 3 ? 'far'  : 'fas'" class="fa-star"></i>
+              <i :class="film.vote_average < 4 ? 'far'  : 'fas'" class="fa-star"></i>
+              <i :class="film.vote_average < 5 ? 'far'  : 'fas'" class="fa-star"></i>
+            </p>
             <p>Overview: {{film.overview}}</p>
           </div>
         </div>
