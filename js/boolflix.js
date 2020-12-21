@@ -26,7 +26,6 @@ var app = new Vue(
               console.log(this.libreriaFilm)
               for(var i = 0; i < this.libreriaFilm.length; i++) {
                 this.libreriaFilm[i].vote_average = Math.ceil(this.libreriaFilm[i].vote_average/2)
-                console.log(this.libreriaFilm[i].vote_average)
               }
             }
           )
@@ -43,7 +42,6 @@ var app = new Vue(
               console.log(this.libreriaSerieTV)
               for(var i = 0; i < this.libreriaSerieTV.length; i++) {
                 this.libreriaSerieTV[i].vote_average = Math.ceil(this.libreriaSerieTV[i].vote_average/2)
-                console.log(this.libreriaSerieTV[i].vote_average)
               }
               this.libreriaCompleta = [...this.libreriaFilm, ...this.libreriaSerieTV]
               this.libreriaCompleta.sort(function(a, b) {
