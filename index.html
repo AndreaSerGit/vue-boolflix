@@ -24,14 +24,18 @@
         </div>
 
         <div class="search">
-          <input type="text" name="" value="" v-model="ricerca" placeholder="Ricerca titoli">
+          <input type="text" name="" value="" v-model="ricerca" v-on:keyup.enter="cercaFilm" placeholder="Ricerca titoli">
           <button type="button" name="button" @click="cercaFilm"><i class="fas fa-search"></i></button>
           <img src="https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg" alt="">
         </div>
       </header>
 
       <main>
-        <div  v-for="(film, index) in libreriaCompleta" class="movie">
+        <select class="" name="" v-model="genereSelezionato">
+          <option value="All">Seleziona il genere</option>
+          <option  :value="genere.id" v-for="(genere, index) in generi" >{{genere.name}}</option>
+        </select>
+        <div  v-for="(film, index) in libreriaCompleta" v-if="film.genre_ids.includes(genereSelezionato) || genereSelezionato == 'All'" class="movie">
           <img v-if="film.poster_path == null" src="https://thehaatbazar.com/ItemImages/No-image-found_220x330.jpg" alt="">
           <img v-else :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path" alt="">
           <div class="description">
