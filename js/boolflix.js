@@ -8,6 +8,7 @@ var app = new Vue(
       generi: [] ,
       genereSelezionato: 'All',
       ricerca: '' ,
+      stelle: ['', '', '', '', '']
     },
     created: function() {
 
@@ -77,7 +78,7 @@ var app = new Vue(
             }
           );
         }
-      }
+      },
     },
     mounted: function() {
 

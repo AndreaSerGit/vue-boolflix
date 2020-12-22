@@ -46,11 +46,7 @@
             <img v-else-if="film.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" alt=""> <span v-else >{{film.original_language}}</span></p>
 
             <p>Voto:
-              <i :class="film.vote_average < 1 ? 'far'  : 'fas'  " class="fa-star"></i>
-              <i :class="film.vote_average < 2 ? 'far'  : 'fas'" class="fa-star"></i>
-              <i :class="film.vote_average < 3 ? 'far'  : 'fas'" class="fa-star"></i>
-              <i :class="film.vote_average < 4 ? 'far'  : 'fas'" class="fa-star"></i>
-              <i :class="film.vote_average < 5 ? 'far'  : 'fas'" class="fa-star"></i>
+              <i :class="film.vote_average > index ? 'fas'  : 'far'" v-for="(stella, index) in stelle" class="fa-star"></i>
             </p>
             <p>Overview: {{film.overview}}</p>
           </div>
