@@ -8,7 +8,8 @@ var app = new Vue(
       generi: [] ,
       genereSelezionato: 'All',
       ricerca: '' ,
-      stelle: ['', '', '', '', '']
+      stelle: ['', '', '', '', ''],
+      attori: []
     },
     created: function() {
 
@@ -31,7 +32,21 @@ var app = new Vue(
               for(var i = 0; i < this.libreriaFilm.length; i++) {
                 this.libreriaFilm[i].vote_average = Math.ceil(this.libreriaFilm[i].vote_average/2)
               }
+              for(var i = 0; i < this.libreriaFilm.length; i++) {
+                    axios.get('https://api.themoviedb.org/3/movie/' + this.libreriaFilm[i].id + '/credits', {
+                      params: {
+                        api_key: 'd8981d977157659ad91b21c7715d6d58',
+                        language: 'it-IT',
+                      }
 
+                    }
+                  )
+                  .then((attori) => {
+                    this.attori = attori.data.cast;
+                    console.log(this.attori)
+                  }
+                )
+              }
               // 2° chiamata serie tv
               axios.get('https://api.themoviedb.org/3/search/tv' , {
                   params: {
@@ -61,6 +76,7 @@ var app = new Vue(
                   this.libreriaCompleta.sort()
                   console.log(this.libreriaCompleta)
 
+
                   axios.get('https://api.themoviedb.org/3/genre/movie/list', {
                     params: {
                       api_key: 'd8981d977157659ad91b21c7715d6d58',
@@ -74,7 +90,6 @@ var app = new Vue(
                   })
                 }
               )
-
             }
           );
         }

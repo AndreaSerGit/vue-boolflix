@@ -117,7 +117,9 @@ main select {
   cursor: pointer;
   opacity: 1;
 }
-
+.description p i {
+  color: yellow;
+}
 .description:last-child p {
   font-size: 10px;
 }
